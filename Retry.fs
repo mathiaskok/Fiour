@@ -1,4 +1,4 @@
-module WebBehaviors.Retry
+module Fiour.Retry
 open System
 
 let private timeSpanToMil (time:TimeSpan) =
