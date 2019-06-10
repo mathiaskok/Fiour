@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{DE
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Retry", "Projects\Retry\Retry.fsproj", "{57B88755-19E2-47EE-B35A-829D139FB5AF}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Web", "Projects\Web\Web.fsproj", "{B90AFE36-E8C7-4A8A-999D-B68BBBD07B6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,8 +34,21 @@ Global
 		{57B88755-19E2-47EE-B35A-829D139FB5AF}.Release|x64.Build.0 = Release|Any CPU
 		{57B88755-19E2-47EE-B35A-829D139FB5AF}.Release|x86.ActiveCfg = Release|Any CPU
 		{57B88755-19E2-47EE-B35A-829D139FB5AF}.Release|x86.Build.0 = Release|Any CPU
+		{B90AFE36-E8C7-4A8A-999D-B68BBBD07B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B90AFE36-E8C7-4A8A-999D-B68BBBD07B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B90AFE36-E8C7-4A8A-999D-B68BBBD07B6B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B90AFE36-E8C7-4A8A-999D-B68BBBD07B6B}.Debug|x64.Build.0 = Debug|Any CPU
+		{B90AFE36-E8C7-4A8A-999D-B68BBBD07B6B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B90AFE36-E8C7-4A8A-999D-B68BBBD07B6B}.Debug|x86.Build.0 = Debug|Any CPU
+		{B90AFE36-E8C7-4A8A-999D-B68BBBD07B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B90AFE36-E8C7-4A8A-999D-B68BBBD07B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B90AFE36-E8C7-4A8A-999D-B68BBBD07B6B}.Release|x64.ActiveCfg = Release|Any CPU
+		{B90AFE36-E8C7-4A8A-999D-B68BBBD07B6B}.Release|x64.Build.0 = Release|Any CPU
+		{B90AFE36-E8C7-4A8A-999D-B68BBBD07B6B}.Release|x86.ActiveCfg = Release|Any CPU
+		{B90AFE36-E8C7-4A8A-999D-B68BBBD07B6B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{57B88755-19E2-47EE-B35A-829D139FB5AF} = {DEB7D2A2-1C84-45D3-B3A0-2C88A88AE62B}
+		{B90AFE36-E8C7-4A8A-999D-B68BBBD07B6B} = {DEB7D2A2-1C84-45D3-B3A0-2C88A88AE62B}
 	EndGlobalSection
 EndGlobal
