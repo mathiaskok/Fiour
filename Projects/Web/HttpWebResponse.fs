@@ -20,14 +20,30 @@ let hasContentType content =
 let cookies (hwr:HWR) =
   Cookies(hwr.Cookies)
 
-let hasCookieWith pred cookie hwr =
+let getCookiesWith pred hwr =
   let cs = cookies hwr
-  match cs.TryGetValue(cookie) with
-  | (false,_) -> false
-  | (true,c) -> pred c
+  Seq.filter pred cs.Values
 
-let hasCookie cookie = 
-  hasCookieWith (fun _ -> true) cookie
+let getNamedCookieWith pred name hwr = 
+  let cs = cookies hwr
+  match cs.TryGetValue(name) with
+  | (false,_) -> None
+  | (true,c) ->
+    match pred c with
+    | true -> Some c
+    | false -> None
+
+let getNamedCookie name = 
+  getNamedCookieWith (fun _ -> true) name
+
+let hasCookieWith pred =
+  getCookiesWith pred >> Seq.isEmpty >> not
+
+let hasNamedCookieWith pred name =
+  getNamedCookieWith pred name >> Option.isSome
+
+let hasNamedCookie name = 
+  hasNamedCookieWith (fun _ -> true) name
 
 let headers (hwr:HWR) = 
   Headers(hwr.Headers)
