@@ -8,3 +8,9 @@ let statusCode (hwr:HWR) =
 
 let hasStatusCode code = 
   statusCode >> ((=)code)
+
+let contentType (hwr:HWR) = 
+  hwr.ContentType
+
+let hasContentType content = contentType >> ((=)content)
+
