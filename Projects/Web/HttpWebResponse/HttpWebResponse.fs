@@ -3,7 +3,7 @@ open System.Net
 open Fiour.Web.Cookies
 open Fiour.Web.Headers
 
-type private HWR = HttpWebResponse
+type internal HWR = HttpWebResponse
 
 let private constTrue _ = true
 

@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="HttpWebResponse.fs" />
+    <Compile Include="HttpWebResponse\HttpWebResponse.fs" />
+    <Compile Include="HttpWebResponse\HttpWebResponseBuilder.fs" />
   </ItemGroup>
 
   <ItemGroup>
