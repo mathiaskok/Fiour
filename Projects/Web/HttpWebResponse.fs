@@ -5,6 +5,8 @@ open Fiour.Web.Headers
 
 type private HWR = HttpWebResponse
 
+let private constTrue _ = true
+
 let statusCode (hwr:HWR) = 
   hwr.StatusCode
 
@@ -34,7 +36,7 @@ let getNamedCookieWith pred name hwr =
     | false -> None
 
 let getNamedCookie name = 
-  getNamedCookieWith (fun _ -> true) name
+  getNamedCookieWith constTrue name
 
 let hasCookieWith pred =
   getCookiesWith pred >> Seq.isEmpty >> not
@@ -43,19 +45,41 @@ let hasNamedCookieWith pred name =
   getNamedCookieWith pred name >> Option.isSome
 
 let hasNamedCookie name = 
-  hasNamedCookieWith (fun _ -> true) name
+  hasNamedCookieWith constTrue name
 
 let headers (hwr:HWR) = 
   Headers(hwr.Headers)
 
-let hasHeaderWith pred (header:string) hwr =
+let getHeader (header:string) hwr =
   let hs = headers hwr
   match hs.TryGetValue(header) with
-  | (false,_) -> false
-  | (true,h) -> pred h
+  | (false,_) -> None
+  | (true,h) -> Some h
+
+let getHeaderEnum (header:HttpResponseHeader) hwr =
+  let hs = headers hwr
+  match hs.TryGetValue(header) with
+  | (false,_) -> None
+  | (true,h) -> Some h
+
+let hasHeaderWith pred header hwr =
+  match getHeader header hwr with
+  | None -> false
+  | Some h -> pred h
+
+let hasHeaderEnumWith pred header hwr =
+  match getHeaderEnum header hwr with
+  | None -> false
+  | Some h -> pred h
 
 let hasHeaderEq header value =
   hasHeaderWith ((=)value) header
 
-let hasHeader header = 
-  hasHeaderWith (fun _ -> true) header
+let hasHeaderEnumEq header value =
+  hasHeaderEnumWith ((=)value) header
+
+let hasHeader header =
+  hasHeaderWith constTrue header
+
+let hasHeaderEnum header =
+  hasHeaderEnumWith constTrue header
