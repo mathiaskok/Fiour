@@ -3,6 +3,6 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Retry/Retry.fs" />
+    <Compile Include="Retry.fs" />
   </ItemGroup>
 </Project>
