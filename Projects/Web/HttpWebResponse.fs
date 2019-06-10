@@ -83,3 +83,11 @@ let hasHeader header =
 
 let hasHeaderEnum header =
   hasHeaderEnumWith constTrue header
+
+let transformAndCloseContent trans (hwr:HWR) =
+  use stream = hwr.GetResponseStream()
+  trans stream
+
+let transformAndCloseResponse trans (hwr:HWR) = 
+  use response = hwr
+  trans response
