@@ -1,0 +1,4 @@
+[submodule "External/FSharpUtilities"]
+	path = External/FSharpUtilities
+	url = https://github.com/mathiaskok/FSharpUtilities
+	branch = master
