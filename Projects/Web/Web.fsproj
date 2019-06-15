@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -6,8 +6,6 @@
 
   <ItemGroup>
     <Compile Include="HttpWebResponse\HttpWebResponse.fs" />
-    <Compile Include="HttpWebResponse\HttpWebResponseBuilder.fs" />
-    <Compile Include="HttpWebResponse\HttpWebResponseCombinators.fs" />
   </ItemGroup>
 
   <ItemGroup>

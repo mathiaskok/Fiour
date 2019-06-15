@@ -4,6 +4,7 @@ open Fiour.Web.Cookies
 open Fiour.Web.Headers
 
 type internal HWR = HttpWebResponse
+type internal HWRB<'a> = HWR -> 'a
 
 let private constTrue _ = true
 
@@ -91,3 +92,15 @@ let transformAndCloseContent trans (hwr:HWR) =
 let transformAndCloseResponse trans (hwr:HWR) = 
   use response = hwr
   trans response
+
+let hwrAnd (x:HWRB<bool>) (y:HWRB<bool>) : HWRB<bool> = 
+  fun hwr ->
+    match x hwr with
+    | false -> false
+    | true -> y hwr
+
+let hwrOr (x:HWRB<bool>) (y:HWRB<bool>) : HWRB<bool> = 
+  fun hwr ->
+    match x hwr with
+    | true -> true
+    | false -> y hwr
